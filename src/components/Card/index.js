@@ -2,12 +2,6 @@ import React from 'react';
 import {View, Image, Text, StyleSheet, FlatList, SafeAreaView} from 'react-native';
 import Data from '../../Data/data';
 import Button from '../CustomButton';
-import WebView from 'react-native-webview';
-
-
-
-
-
 
 export default function Card(){
 
@@ -16,22 +10,6 @@ export default function Card(){
             <View style ={{borderBottomWidth:1, borderBottomColor:'gray'}}/>
         );
     }
-
-    function Web(){
-        return(
-            
-            <WebView
-             source={{ uri: 'https://logrocket.com/' }}
-             style={{flex:1}}
-            />
-            
-        );
-    }
-
-    
-
-    
-
 
     return(
         <SafeAreaView style={styles.container}>
@@ -54,12 +32,12 @@ export default function Card(){
                             <Button 
                             title={'Detaylar'} 
                             style={{marginVertical:30}}
-                            onPress={() => Web()}
+                            onPress={()=> alert('Detaylar')}
+                            
                             />
                             
                         </View>
 
-                        
                     </View>
 
                 )}
