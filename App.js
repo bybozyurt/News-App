@@ -18,9 +18,7 @@ export default function App(){
         <Card/>
       
     </View>
-    // <WebView
-    // source={{ uri: 'https://www.coindesk.com/markets/2020/10/02/bulls-exit-bitmex-bitcoin-futures-market/' }}
-    // />
+    
     
     
   );
