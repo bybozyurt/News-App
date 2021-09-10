@@ -1,11 +1,14 @@
 import React, {useEffect, useState} from 'react';
 import {View, Image, Text,FlatList, SafeAreaView} from 'react-native';
 import styles from './styles';
+import MaterialComIcon from '../MaterialCommunityIcon';
+import { colors } from '../../constants';
 
 
 
 
-export default function Card(){
+
+export default function HeadlinesCard(){
 
     const newsApiUrl = 'https://newsapi.org/v2/top-headlines?country=tr&apiKey=f7a124b92a934e4f83b5e96e7a186dc5';
 
@@ -19,19 +22,14 @@ export default function Card(){
             .then(res => setHeadlines(res))
         
         } catch (error) {
-            console.log("Axios Error");
-            
+            console.log("Axios Error"); 
         }
-
         
     }
-
     useEffect(() => {
         fetchTopNews();
         
     }, []);
-
-
 
     function Seperator (){
         return(
@@ -49,10 +47,17 @@ export default function Card(){
             />
             <View style={styles.MetaItemContainer}>
                 <Text style={styles.textTitle} >{item.title}</Text>
+                
                 <View style={styles.InfoContainer}>
-                    <Text style={styles.textAuthor}>{item.author}</Text>
-                    <Text style={styles.textTime}>{item.publishedAt}</Text>          
-                </View>                
+                    <MaterialComIcon name={'beaker'} size={15} color={colors.c000000} />
+                    <Text style={styles.textSourceName}>{item.source.name}</Text>
+
+                    <MaterialComIcon name={'clock-outline'} size={15} color={colors.c000000}/>
+                    <Text style={styles.textTime}>{item.publishedAt}</Text>  
+                             
+                </View>
+                
+                                
             </View>
            
         </View>

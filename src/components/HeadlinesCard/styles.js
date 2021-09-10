@@ -23,7 +23,8 @@ const styles = StyleSheet.create({
         justifyContent:'space-between',
         alignItems:'flex-end',
         flex:1, 
-        flexDirection:'row'
+        flexDirection:'row',
+        paddingRight:5
 
     },
 
@@ -31,9 +32,10 @@ const styles = StyleSheet.create({
         fontSize:fonts.f14,
         
     },
-    textAuthor:{
+    textSourceName:{
         fontSize:fonts.f13,
-        fontWeight:'bold'
+        fontWeight:'bold',
+        paddingRight:18
     },
     textTime:{
         fontSize:fonts.f13,
