@@ -1,9 +1,37 @@
-import React from 'react';
-import {View, Image, Text, StyleSheet, FlatList, SafeAreaView} from 'react-native';
-import Data from '../../Data/data';
-import Button from '../CustomButton';
+import React, {useEffect, useState} from 'react';
+import {View, Image, Text,FlatList, SafeAreaView} from 'react-native';
+import styles from './styles';
+
+
+
 
 export default function Card(){
+
+    const newsApiUrl = 'https://newsapi.org/v2/top-headlines?country=tr&apiKey=f7a124b92a934e4f83b5e96e7a186dc5';
+
+    const [headlines, setHeadlines] = useState({});
+
+    async function fetchTopNews () {
+
+        try {
+            (await fetch(newsApiUrl))
+            .json()
+            .then(res => setHeadlines(res))
+        
+        } catch (error) {
+            console.log("Axios Error");
+            
+        }
+
+        
+    }
+
+    useEffect(() => {
+        fetchTopNews();
+        
+    }, []);
+
+
 
     function Seperator (){
         return(
@@ -11,36 +39,36 @@ export default function Card(){
         );
     }
 
+    function renderItem({item}){
+        return(
+
+            <View style={styles.ItemContainer}>
+            <Image
+            source={{uri:item.urlToImage}}
+            style={styles.image}
+            />
+            <View style={styles.MetaItemContainer}>
+                <Text style={styles.textTitle} >{item.title}</Text>
+                <View style={styles.InfoContainer}>
+                    <Text style={styles.textAuthor}>{item.author}</Text>
+                    <Text style={styles.textTime}>{item.publishedAt}</Text>          
+                </View>                
+            </View>
+           
+        </View>
+        );
+
+    }
+
     return(
         <SafeAreaView style={styles.container}>
         
             <FlatList 
-                data={Data}
-                keyExtractor={item => item.u_id.toString()}
+                data={headlines.articles}
+                renderItem={renderItem}
+                keyExtractor={item => item.title}
                 ItemSeparatorComponent={()=> Seperator()}
-                renderItem={({item}) =>(
-                    <View style={styles.ItemContainer}>
-                        <Image
-                            source={{uri:item.imageUrl}}
-                            style={styles.image}
-                        />
-
-                        <View style={styles.MetaItemContainer}>
-                            <Text style={[styles.textTitle],{}}>{item.title}</Text>
-                            <Text style={styles.textAuthor}>{item.author}</Text>
                 
-                            <Button 
-                            title={'Detaylar'} 
-                            style={{marginVertical:30}}
-                            onPress={()=> alert('Detaylar')}
-                            
-                            />
-                            
-                        </View>
-
-                    </View>
-
-                )}
                 >
 
             </FlatList>
@@ -48,36 +76,3 @@ export default function Card(){
     );
 }
 
-const styles = StyleSheet.create({
-
-    container:{
-        flex:1,
-        backgroundColor:'white'
-    },
-    image:{
-        width:145,
-        height:158
-    },
-    
-    ItemContainer:{
-        flexDirection:'row',
-        paddingLeft:5
-    },
-    MetaItemContainer:{
-        padding:5,
-        paddingLeft:5
-    },
-
-    textTitle:{
-        fontSize:12,
-        fontWeight:'bold'
-    },
-    textAuthor:{
-        fontSize:10,
-        fontWeight:'200'
-    },
-
-
-
-   
-});

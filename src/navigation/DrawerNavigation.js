@@ -4,6 +4,7 @@ import AllNewSourcesScreen from "../screens/AllNewSourcesScreen";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import SettingsScreen from "../screens/SettingsScreen";
 import DrawerBarIcon from "../components/DrawerBarIcon/DrawerBarIcon";
+import { colors } from "../constants";
 
 
 
@@ -11,22 +12,27 @@ export default function DrawerNavigator(){
 
     const Draw = createDrawerNavigator();
 
+    const AppScreens ={
+        topNews:'Öne Çıkan Haberler',
+        AllNews:'Tüm Haberler',
+    }
+
 
     return(
 
         <Draw.Navigator>
             <Draw.Screen
-                name={'Root'}
+                name={AppScreens.topNews}
                 component={AllNewSourcesScreen}
                 options={{
-                    drawerIcon:()=> <DrawerBarIcon name={'newspaper'} color={'black'} />
+                    drawerIcon:()=> <DrawerBarIcon name={'star'} color={colors.c000000} />
                 }}
             />
             <Draw.Screen
-                name={'Settings'}
+                name={AppScreens.AllNews}
                 component={SettingsScreen}
                 options={{
-                    drawerIcon:()=> <DrawerBarIcon name={'settings'} color={'black'}/>
+                    drawerIcon:()=> <DrawerBarIcon name={'newspaper'} color={colors.c000000}/>
                 }}
             />
         </Draw.Navigator>
