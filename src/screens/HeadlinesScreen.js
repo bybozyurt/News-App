@@ -42,7 +42,7 @@ export default function HeadlinesScreen({navigation}){
     function renderItem({item}){
         return(
             <TouchableHighlight 
-            onPress={()=> navigation.navigate('Web')
+            onPress={()=> navigation.navigate('Web',{url:item.url, title:item.title})
             }
             underlayColor={0}
             >
