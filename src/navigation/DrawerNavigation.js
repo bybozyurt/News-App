@@ -1,35 +1,35 @@
-import React from "react";
-import {} from 'react-native';
-import { createDrawerNavigator } from "@react-navigation/drawer";
-import SettingsScreen from "../screens/SettingsScreen";
-import CustomIcon from '../components/CustomIcon';
-import { colors } from "../constants";
+// import React from "react";
+// import {} from 'react-native';
+// import { createDrawerNavigator } from "@react-navigation/drawer";
+// import SettingsScreen from "../screens/SettingsScreen";
+// import CustomIcon from '../components/CustomIcon';
+// import { colors } from "../constants";
 
 
 
-export default function DrawerNavigator(){
+// export default function DrawerNavigator(){
 
-    const Draw = createDrawerNavigator();
+//     const Draw = createDrawerNavigator();
 
-    const AppScreens ={
+//     const AppScreens ={
         
-        kategoriler:'Kategoriler'
-    }
+//         kategoriler:'Kategoriler'
+//     }
 
 
-    return(
+//     return(
 
-        <Draw.Navigator>
+//         <Draw.Navigator>
             
-            <Draw.Screen
-                name={AppScreens.kategoriler}
-                component={SettingsScreen}
-                options={{
-                    drawerIcon:()=> <CustomIcon name={'newspaper'} color={colors.c000000}/>
-                }}
-            />
-        </Draw.Navigator>
+//             <Draw.Screen
+//                 name={AppScreens.kategoriler}
+//                 component={SettingsScreen}
+//                 options={{
+//                     drawerIcon:()=> <CustomIcon name={'newspaper'} color={colors.c000000}/>
+//                 }}
+//             />
+//         </Draw.Navigator>
 
 
-    );
-}
+//     );
+// }

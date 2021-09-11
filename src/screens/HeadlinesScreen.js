@@ -3,20 +3,16 @@ import {View, Image, Text,FlatList, SafeAreaView, TouchableHighlight} from 'reac
 import styles from './styles';
 import MaterialComIcon from '../components/MaterialCommunityIcon'
 import { colors } from '../constants'
-import { useNavigation } from '@react-navigation/core';
- 
 
 
 
-
-
-export default function HeadlinesScreen(){
+export default function HeadlinesScreen({navigation}){
 
     const newsApiUrl = 'https://newsapi.org/v2/top-headlines?country=tr&apiKey=f7a124b92a934e4f83b5e96e7a186dc5';
 
     const [headlines, setHeadlines] = useState({});
 
-    const navigation = useNavigation();
+
 
     async function fetchTopNews () {
 
@@ -46,9 +42,8 @@ export default function HeadlinesScreen(){
     function renderItem({item}){
         return(
             <TouchableHighlight 
-            onPress={()=> {
-                navigation.navigate('../../screens/WebViewScreen.js', {url:item.url, title:item.title})
-            }}
+            onPress={()=> navigation.navigate('Web')
+            }
             underlayColor={0}
             >
 

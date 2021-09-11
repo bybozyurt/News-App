@@ -5,35 +5,44 @@ import HeadlinesScreen from '../screens/HeadlinesScreen';
 import AllNewsScreen from "../screens/AllNewsScreen";
 import CustomIcon from '../components/CustomIcon';
 import { colors } from "../constants";
+import { MainStackNavigation } from "./StackNavigation";
+
 
 export default function TabNavigator(){
     const Tab = createBottomTabNavigator();
 
-    const TabScreens = {
-        topNews:'Öne Çıkan Haberler',
-        allNews:'Tüm Haberler',
+    const screenOptions = {
+        tabBarActiveTintColor:'tomato', 
+        tabBarInactiveTintColor:'gray'
         
-    }
-
+    };
+    
+    
 
     return(
-        <Tab.Navigator>
+        <Tab.Navigator screenOptions={screenOptions}>
+    
             <Tab.Screen 
-            name={TabScreens.topNews} 
-            component={HeadlinesScreen}
+            name={'Headlines'} 
+            component={MainStackNavigation}
             options={{
+                headerShown:false,
                 tabBarIcon: ()=> <CustomIcon name={'newspaper'} color={colors.c000000}/>
             }}
+            
 
             />
             <Tab.Screen
-            name={TabScreens.allNews}
+            name={'Settings'}
             component={AllNewsScreen}
             options={{
-                tabBarIcon: ()=> <CustomIcon name={'book'} color={colors.c000000}/>
+                
+                tabBarIcon: ()=> <CustomIcon name={'book'} color={colors.c000000}
+                />
             }}
-
             />
+
+            
         </Tab.Navigator>
     );
 }

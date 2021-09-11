@@ -9,7 +9,7 @@ export default function WebViewScreen({navigation}){
         <SafeAreaView style={{flex:1}}>
 
         <WebView
-            source={{uri:'https://github.com/bybozyurt/News-App/blob/main/src/components/CustomButton/index.js'}}
+            source={{uri:'https://github.com/bybozyurt'}}
             
         />
         </SafeAreaView>
