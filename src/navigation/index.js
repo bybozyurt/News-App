@@ -9,7 +9,7 @@ export default function Navigation(){
 
     return(
         <NavigationContainer>
-            <TabNavigator/>
+            <DrawerNavigator/>
             
         </NavigationContainer>
     );
