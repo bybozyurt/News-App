@@ -37,7 +37,7 @@ export default function TabNavigator(){
             component={AllNewsScreen}
             options={{
                 
-                tabBarIcon: ()=> <CustomIcon name={'book'} color={colors.c000000}
+                tabBarIcon: ()=> <CustomIcon name={'settings'} color={colors.c000000}
                 />
             }}
             />

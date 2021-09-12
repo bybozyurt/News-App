@@ -6,10 +6,10 @@ import { colors } from '../../constants';
 
 
 
-export default function EconomyScreen({navigation}){
+export default function SportScreen({navigation}){
 
     const country = 'tr';
-    const category = 'business';
+    const category = 'sports';
     const API_KEY = 'f7a124b92a934e4f83b5e96e7a186dc5';
     const url = `https://newsapi.org/v2/top-headlines?country=${country}&category=${category}&apiKey=${API_KEY}`;
 

@@ -5,7 +5,7 @@ import CustomIcon from '../components/CustomIcon';
 import { colors } from "../constants";
 import EconomyScreen from '../screens/categoryScreens/EconomyScreen';
 import TabNavigator from "./TabNavigation";
-import Sport from "../screens/categoryScreens/Sport";
+import SportScreen from "../screens/categoryScreens/SportScreen";
 
 
 export default function DrawerNavigator(){
@@ -27,17 +27,17 @@ export default function DrawerNavigator(){
             />
             
             <Draw.Screen
-                name={'Economy'}
+                name={'Business'}
                 component={EconomyScreen}
                 options={{
-                    drawerIcon:() => <CustomIcon name={'sell'} color={colors.c000000}/>
+                    drawerIcon:() => <CustomIcon name={'logo-usd'} color={colors.c000000}/>
                 }}
             />
             <Draw.Screen
                 name={'Sport'}
-                component={Sport}
+                component={SportScreen}
                 options={{
-                    drawerIcon:() => <CustomIcon name={'sell'} color={colors.c000000}/>
+                    drawerIcon:() => <CustomIcon name={'football'} color={colors.c000000}/>
                 }}
             />
        </Draw.Navigator>
