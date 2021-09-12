@@ -8,7 +8,11 @@ import { colors } from '../constants'
 
 export default function HeadlinesScreen({navigation}){
 
-    const newsApiUrl = 'https://newsapi.org/v2/top-headlines?country=tr&apiKey=f7a124b92a934e4f83b5e96e7a186dc5';
+    const country = 'tr';
+    const category = 'top-headlines';
+    const API_KEY = 'f7a124b92a934e4f83b5e96e7a186dc5';
+
+    const newsApiUrl = `https://newsapi.org/v2/${category}?country=${country}&apiKey=${API_KEY}`;
 
     const [headlines, setHeadlines] = useState({});
 
