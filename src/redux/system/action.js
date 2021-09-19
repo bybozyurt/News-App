@@ -1,4 +1,13 @@
-import {SET_LANGUAGE, SET_THEME, SHOW_HEADLINES, SHOW_SPORTS, SHOW_BUSINESS} from './actionTypes';
+import {SET_LANGUAGE, 
+        SET_THEME,
+        SHOW_HEADLINES,
+        SHOW_SPORTS,
+        SHOW_BUSINESS,
+        SHOW_FUN,
+        SHOW_HEALTH,
+        SHOW_SCIENCE,
+        SHOW_TECHNOLOGY
+} from './actionTypes';
 
 export function setTheme(payload){
     return{
@@ -24,7 +33,7 @@ export function showHeadlines(payload){
 
 export function showSports(payload){
     return{
-        type: SHOW_HEADLINES,
+        type: SHOW_SPORTS,
         payload
     };
 }
@@ -35,3 +44,33 @@ export function showBusiness(payload){
         payload
     };
 }
+
+export function showFun(payload){
+    return{
+        type: SHOW_FUN,
+        payload
+    };
+}
+
+export function showScience(payload){
+    return{
+        type: SHOW_SCIENCE,
+        payload
+    };
+}
+
+export function showHealth(payload){
+    return{
+        type: SHOW_HEALTH,
+        payload
+    };
+}
+
+export function showTechnology(payload){
+    return{
+        type: SHOW_TECHNOLOGY,
+        payload
+    };
+}
+
+
