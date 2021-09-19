@@ -1,7 +1,7 @@
 import React from "react";
 import {} from 'react-native';
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import HeadlinesScreen from '../screens/HeadlinesScreen';
+import SettingsScreen from '../screens/SettingsScreen';
 import AllNewsScreen from "../screens/AllNewsScreen";
 import CustomIcon from '../components/CustomIcon';
 import { colors } from "../constants";
@@ -34,7 +34,7 @@ export default function TabNavigator(){
             />
             <Tab.Screen
             name={'Settings'}
-            component={AllNewsScreen}
+            component={SettingsScreen}
             options={{
                 
                 tabBarIcon: ()=> <CustomIcon name={'settings'} color={colors.c000000}

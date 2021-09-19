@@ -3,6 +3,7 @@ import {View, Image, Text,FlatList, SafeAreaView, TouchableHighlight} from 'reac
 import styles from '../styles';
 import MaterialComIcon from '../../components/MaterialCommunityIcon';
 import { colors } from '../../constants';
+import prettyTime from '../../config/PrettyTime';
 
 
 
@@ -64,7 +65,7 @@ export default function HealthScreen({navigation}){
                     <Text style={styles.textSourceName}>{item.source.name}</Text>
 
                     <MaterialComIcon name={'clock-outline'} size={15} color={colors.c000000}/>
-                    <Text style={styles.textTime}>{item.publishedAt}</Text>  
+                    <Text style={styles.textTime}>{prettyTime(item.publishedAt)}</Text>  
                              
                 </View>
                 
