@@ -2,7 +2,6 @@ var prettyTime = function (time) {
     if (!time) return;
     var now = new Date();
     var releasedDate = new Date(time);
-    // var seconds = ((now.getTime() – releasedDate) * .001) >> 0;
     var seconds = (now.getTime()- releasedDate) * .001 >> 0;
     var minutes = seconds / 60;
     var hours = minutes / 60;

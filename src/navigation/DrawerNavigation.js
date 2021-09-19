@@ -66,7 +66,7 @@ export default function DrawerNavigator(){
                 }}
             />
             <Draw.Screen
-                name={'Fun'}
+                name={'Magazine'}
                 component={FunScreen}
                 options={{
                     drawerIcon:() => <CustomIcon name={'happy'} color={colors.c000000}/>

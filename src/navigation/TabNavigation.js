@@ -30,17 +30,23 @@ export default function TabNavigator(){
                 tabBarIcon: ()=> <CustomIcon name={'newspaper'} color={colors.c000000}/>
             }}
             
-
+            />
+            <Tab.Screen
+                name={'WORLD NEWS'}
+                component={AllNewsScreen}
+                options={{
+                    tabBarIcon:() => <CustomIcon name={'earth-sharp'} color={colors.c000000}/>
+                }}
             />
             <Tab.Screen
             name={'Settings'}
             component={SettingsScreen}
             options={{
-                
                 tabBarIcon: ()=> <CustomIcon name={'settings'} color={colors.c000000}
                 />
             }}
             />
+            
 
             
         </Tab.Navigator>

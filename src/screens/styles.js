@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
     },
     MetaItemContainer:{
         flex:1,
-        paddingLeft:10,
+        paddingLeft:5,
            
     },
     InfoContainer:{
@@ -24,7 +24,8 @@ const styles = StyleSheet.create({
         alignItems:'flex-end',
         flex:1, 
         flexDirection:'row',
-        paddingRight:5
+        paddingRight:5,
+        
 
     },
 
@@ -35,12 +36,18 @@ const styles = StyleSheet.create({
     textSourceName:{
         fontSize:fonts.f13,
         fontWeight:'bold',
-        paddingRight:18
+        paddingRight:0
     },
     textTime:{
         fontSize:fonts.f13,
         fontWeight:'bold'
-    }
+    },
+    row: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        marginTop:10
+    },
 
 })
 
