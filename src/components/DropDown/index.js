@@ -9,7 +9,9 @@ export default function DropDown({
     onValueChange,
     placeholder,
     color,
-    borderColor
+    borderColor,
+
+    onDonePress = () =>{}
 }){
 
     return(
@@ -19,6 +21,7 @@ export default function DropDown({
                 items={items}
                 value={value}
                 placeholder={{label: placeholder, value:null}}
+                onDonePress={() => onDonePress()}
                 style={{
                     inputIOS: {
                     fontSize: fonts.f13,

@@ -10,11 +10,14 @@ import TechnologyScreen from "../screens/categoryScreens/TechnologyScreen";
 import HealthScreen from "../screens/categoryScreens/HealthScreen";
 import ScienceScreen from "../screens/categoryScreens/ScienceScreen";
 import FunScreen from "../screens/categoryScreens/FunScreen";
+import I18n from '../i18n'
 
 
 export default function DrawerNavigator(){
 
     const Draw = createDrawerNavigator();
+
+    const headTitle = I18n.t('headlines');
 
 
     return(
@@ -25,6 +28,7 @@ export default function DrawerNavigator(){
                 name={'Headlines'}
                 component={TabNavigator}
                 options={{
+                    title:headTitle,
                     headerShown:false,
                     drawerIcon:()=> <CustomIcon name={'newspaper'} color={colors.c000000}/>
                 }}
@@ -34,6 +38,7 @@ export default function DrawerNavigator(){
                 name={'Business'}
                 component={EconomyScreen}
                 options={{
+                    title:I18n.t('business'),
                     drawerIcon:() => <CustomIcon name={'logo-usd'} color={colors.c000000}/>
                 }}
             />
@@ -41,6 +46,7 @@ export default function DrawerNavigator(){
                 name={'Sport'}
                 component={SportScreen}
                 options={{
+                    title:I18n.t('sport'),
                     drawerIcon:() => <CustomIcon name={'football'} color={colors.c000000}/>
                 }}
             />
@@ -48,6 +54,7 @@ export default function DrawerNavigator(){
                 name={'Technology'}
                 component={TechnologyScreen}
                 options={{
+                    title:I18n.t('technology'),
                     drawerIcon:() => <CustomIcon name={'hardware-chip-sharp'} color={colors.c000000}/>
                 }}
             />
@@ -55,6 +62,7 @@ export default function DrawerNavigator(){
                 name={'Health'}
                 component={HealthScreen}
                 options={{
+                    title:I18n.t('health'),
                     drawerIcon:() => <CustomIcon name={'heart-sharp'} color={colors.c000000}/>
                 }}
             />
@@ -62,6 +70,7 @@ export default function DrawerNavigator(){
                 name={'Science'}
                 component={ScienceScreen}
                 options={{
+                    title:I18n.t('science'),
                     drawerIcon:() => <CustomIcon name={'flask'} color={colors.c000000} />
                 }}
             />
@@ -69,6 +78,7 @@ export default function DrawerNavigator(){
                 name={'Magazine'}
                 component={FunScreen}
                 options={{
+                    title:I18n.t('magazine'),
                     drawerIcon:() => <CustomIcon name={'happy'} color={colors.c000000}/>
                 }}
             />
