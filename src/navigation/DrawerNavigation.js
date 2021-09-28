@@ -10,14 +10,21 @@ import TechnologyScreen from "../screens/categoryScreens/TechnologyScreen";
 import HealthScreen from "../screens/categoryScreens/HealthScreen";
 import ScienceScreen from "../screens/categoryScreens/ScienceScreen";
 import FunScreen from "../screens/categoryScreens/FunScreen";
-import I18n from '../i18n'
+import I18n from '../i18n';
 
 
 export default function DrawerNavigator(){
 
     const Draw = createDrawerNavigator();
 
-    const headTitle = I18n.t('headlines');
+    const headlinesTitle = I18n.t('headlines');
+    const businessTitle = I18n.t('business');
+    const sportTitle = I18n.t('sport');
+    const healthTittle = I18n.t('health');
+    const technologyTitle = I18n.t('technology');
+    const scienceTitle = I18n.t('science');
+    const magazineTitle = I18n.t('magazine');
+
 
 
     return(
@@ -28,7 +35,7 @@ export default function DrawerNavigator(){
                 name={'Headlines'}
                 component={TabNavigator}
                 options={{
-                    title:headTitle,
+                    title:headlinesTitle,
                     headerShown:false,
                     drawerIcon:()=> <CustomIcon name={'newspaper'} color={colors.c000000}/>
                 }}
@@ -38,7 +45,8 @@ export default function DrawerNavigator(){
                 name={'Business'}
                 component={EconomyScreen}
                 options={{
-                    title:I18n.t('business'),
+                    title:businessTitle,
+                    headerShown:false,
                     drawerIcon:() => <CustomIcon name={'logo-usd'} color={colors.c000000}/>
                 }}
             />
@@ -46,7 +54,8 @@ export default function DrawerNavigator(){
                 name={'Sport'}
                 component={SportScreen}
                 options={{
-                    title:I18n.t('sport'),
+                    title:sportTitle,
+                    headerShown:false,
                     drawerIcon:() => <CustomIcon name={'football'} color={colors.c000000}/>
                 }}
             />
@@ -54,7 +63,8 @@ export default function DrawerNavigator(){
                 name={'Technology'}
                 component={TechnologyScreen}
                 options={{
-                    title:I18n.t('technology'),
+                    title:technologyTitle,
+                    headerShown:false,
                     drawerIcon:() => <CustomIcon name={'hardware-chip-sharp'} color={colors.c000000}/>
                 }}
             />
@@ -62,7 +72,8 @@ export default function DrawerNavigator(){
                 name={'Health'}
                 component={HealthScreen}
                 options={{
-                    title:I18n.t('health'),
+                    title:healthTittle,
+                    headerShown:false,
                     drawerIcon:() => <CustomIcon name={'heart-sharp'} color={colors.c000000}/>
                 }}
             />
@@ -70,7 +81,8 @@ export default function DrawerNavigator(){
                 name={'Science'}
                 component={ScienceScreen}
                 options={{
-                    title:I18n.t('science'),
+                    title:scienceTitle,
+                    headerShown:false,
                     drawerIcon:() => <CustomIcon name={'flask'} color={colors.c000000} />
                 }}
             />
@@ -78,7 +90,8 @@ export default function DrawerNavigator(){
                 name={'Magazine'}
                 component={FunScreen}
                 options={{
-                    title:I18n.t('magazine'),
+                    title:magazineTitle,
+                    headerShown:false,
                     drawerIcon:() => <CustomIcon name={'happy'} color={colors.c000000}/>
                 }}
             />

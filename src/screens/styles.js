@@ -3,7 +3,8 @@ import { colors, fonts } from '../constants'
 
 const styles = StyleSheet.create({
     container:{
-        backgroundColor:colors.cFFFFFF,
+        flex:1,
+        color:colors.cFFFFFF
     },
     image:{
         width:130,
@@ -48,6 +49,22 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
         marginTop:10
     },
+    lightTheme:{
+        backgroundColor:colors.c000000,
+        color:colors.c000000
+    },
+      darkTheme:{
+        backgroundColor:'#FFFFFF',
+        color:colors.cFFFFFF,
+    },
+    view :{
+        padding:20, 
+        
+    },
+    cont:{
+        flex:1,
+        
+    }
 
 })
 

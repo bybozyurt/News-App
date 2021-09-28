@@ -4,6 +4,8 @@ import styles from './styles';
 import MaterialComIcon from '../components/MaterialCommunityIcon'
 import { colors } from '../constants'
 import prettyTime from '../config/PrettyTime';
+import CustomText from '../components/Text';
+import Header from '../components/Header';
 
 
 
@@ -81,6 +83,7 @@ export default function AllNewsScreen({navigation}){
 
     return(
         <SafeAreaView style={styles.container}>
+        
         
             <FlatList 
                 data={headlines.articles}

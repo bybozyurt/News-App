@@ -8,5 +8,6 @@ export default{
     magazine : 'Magazin',
     foreign : 'Yabancı',
     settings : 'Ayarlar',
+    changeLanguage : 'Dil Değiştir'
 
 };

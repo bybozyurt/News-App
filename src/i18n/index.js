@@ -14,6 +14,7 @@ const locales = RnLocalize.getLocales();
 I18n.locale = locales[0].languageTag;
 
 export const changeLanguage = language => {
+    console.log('changeLanguage i18n', language);
     I18n.locale = language;
 };
 

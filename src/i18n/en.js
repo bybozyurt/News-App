@@ -8,5 +8,6 @@ export default{
     magazine : 'Magazine',
     foreign : 'Foreign',
     settings : 'Settings',
+    changeLanguage : 'Change Language'
     
 };

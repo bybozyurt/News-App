@@ -5,3 +5,9 @@ export function getLang(){
 
     return language;
 }
+
+export function getDarkMode(){
+    const isDark = useSelector(state => state.system.isDarkMode)
+    
+    return isDark;
+}

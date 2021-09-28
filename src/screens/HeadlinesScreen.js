@@ -4,6 +4,12 @@ import styles from './styles';
 import MaterialComIcon from '../components/MaterialCommunityIcon'
 import { colors } from '../constants'
 import prettyTime from '../config/PrettyTime';
+import Header from '../components/Header';
+import I18n from '../i18n';
+import { get } from 'react-native/Libraries/Utilities/PixelRatio';
+import { getDarkMode } from '../redux/system/selector';
+import CustomView from '../components/CustomView';
+import CustomText from '../components/Text';
 
 
 
@@ -16,8 +22,6 @@ export default function HeadlinesScreen({navigation}){
     const newsApiUrl = `https://newsapi.org/v2/${category}?country=${country}&apiKey=${API_KEY}`;
 
     const [headlines, setHeadlines] = useState({});
-
-
 
     async function fetchTopNews () {
 
@@ -51,22 +55,20 @@ export default function HeadlinesScreen({navigation}){
             }
             underlayColor={0}
             >
-
-
             <View style={styles.ItemContainer}>
             <Image
             source={{uri:item.urlToImage}}
             style={styles.image}
             />
             <View style={styles.MetaItemContainer}>
-                <Text style={styles.textTitle} >{item.title}</Text>
+                <CustomText style={styles.textTitle} text={item.title}></CustomText>
                 
                 <View style={styles.InfoContainer}>
                     <MaterialComIcon name={'beaker'} size={15} color={colors.c000000} />
-                    <Text style={styles.textSourceName}>{item.source.name}</Text>
+                    <CustomText style={styles.textSourceName} text={item.source.name}></CustomText>
 
                     <MaterialComIcon name={'clock-outline'} size={15} color={colors.c000000}/>
-                    <Text style={styles.textTime}>{prettyTime(item.publishedAt)}</Text>  
+                    <CustomText style={styles.textTime} text={prettyTime(item.publishedAt)}></CustomText>  
                              
                 </View>
                 
@@ -80,7 +82,9 @@ export default function HeadlinesScreen({navigation}){
 
 
     return(
-        <SafeAreaView style={styles.container}>
+        <CustomView style={styles.container}>
+            <Header title={I18n.t('headlines')}/>
+
         
             <FlatList 
                 data={headlines.articles}
@@ -91,7 +95,7 @@ export default function HeadlinesScreen({navigation}){
                 >
 
             </FlatList>
-        </SafeAreaView>
+        </CustomView>
     );
 }
 
