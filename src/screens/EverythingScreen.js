@@ -5,19 +5,32 @@ import MaterialComIcon from '../components/MaterialCommunityIcon'
 import { colors } from '../constants'
 import prettyTime from '../config/PrettyTime';
 import CustomText from '../components/Text';
-import Header from '../components/Header';
+import { getCategory, getCountry } from '../redux/system/selector';
+import CustomView from '../components/CustomView';
+import BackHeader from '../BackHeader';
+import {useNavigation} from '@react-navigation/native';
 
 
 
-export default function AllNewsScreen({navigation}){
+export default function EverythingScreen(){
 
-    const country = 'us';
-    const category = 'top-headlines';
+    
+    const country = getCountry();
+    const category = getCategory();
+
+    console.log("Everything Screen country and category = ", country, category);
+    const navigation = useNavigation();
+
+
     const API_KEY = 'f7a124b92a934e4f83b5e96e7a186dc5';
 
-    const newsApiUrl = `https://newsapi.org/v2/${category}?country=${country}&apiKey=${API_KEY}`;
+    const newsApiUrl = `https://newsapi.org/v2/top-headlines?country=${country}&category=${category}&apiKey=${API_KEY}`;
  
     const [headlines, setHeadlines] = useState({});
+
+    const goBack = () => {
+        navigation.navigate('Categories');
+    };
 
 
 
@@ -35,9 +48,6 @@ export default function AllNewsScreen({navigation}){
     }
     useEffect(() => {
         fetchTopNews();
-            
-        
-        
     }, []);
 
     function Seperator (){
@@ -53,48 +63,42 @@ export default function AllNewsScreen({navigation}){
             }
             underlayColor={0}
             >
-
-
             <View style={styles.ItemContainer}>
             <Image
             source={{uri:item.urlToImage}}
             style={styles.image}
             />
             <View style={styles.MetaItemContainer}>
-                <Text style={styles.textTitle} >{item.title}</Text>
+                <CustomText style={styles.textTitle} text={item.title}></CustomText>
                 
                 <View style={styles.InfoContainer}>
                     <MaterialComIcon name={'beaker'} size={15} color={colors.c000000} />
-                    <Text style={styles.textSourceName}>{item.source.name}</Text>
+                    <CustomText style={styles.textSourceName} text={item.source.name}></CustomText>
 
                     <MaterialComIcon name={'clock-outline'} size={15} color={colors.c000000}/>
-                    <Text style={styles.textTime}>{prettyTime(item.publishedAt)}</Text>  
-                             
-                </View>
-                
-                                
-            </View>
-           
+                    <CustomText style={styles.textTime} text={prettyTime(item.publishedAt)}></CustomText>            
+                </View>                  
+            </View> 
         </View>
         </TouchableHighlight>
         );
+    
     }
 
 
     return(
-        <SafeAreaView style={styles.container}>
-        
+        <CustomView style={styles.container}>
+        <BackHeader title={'Kategoriler'} onPress={()=> goBack()}  />
         
             <FlatList 
                 data={headlines.articles}
                 renderItem={renderItem}
                 keyExtractor={item => item.title}
                 ItemSeparatorComponent={()=> Seperator()}
-                
                 >
 
             </FlatList>
-        </SafeAreaView>
+        </CustomView>
     );
 }
 

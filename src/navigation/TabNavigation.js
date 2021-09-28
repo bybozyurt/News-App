@@ -21,9 +21,7 @@ export default function TabNavigator(){
     const settingsTitle = I18n.t('settings');
     const categoriesTitle = I18n.t('categories');
    
-   
-   
-    const theme = isDark ? styles.lightTheme : styles.darkTheme;
+
 
     
 
@@ -38,7 +36,7 @@ export default function TabNavigator(){
     
     return(
 
-        <Tab.Navigator screenOptions={screenOptions} >
+        <Tab.Navigator screenOptions={screenOptions} initialRouteName={CategoryScreen}>
             <Tab.Screen 
             name={'Headlines'} 
             component={MainStackNavigation}

@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 import { colors, fonts } from "../../constants";
 import { getDarkMode } from "../../redux/system/selector";
 
-export default function MaterialComIcon({name, color, size, props, style}){
+export default function MaterialComIcon({name, color, size, style}){
 
     const isDark = getDarkMode();
     

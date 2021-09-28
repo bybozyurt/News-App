@@ -11,3 +11,15 @@ export function getDarkMode(){
     
     return isDark;
 }
+
+export function getCategory(){
+    const category = useSelector(state => state.system.category)
+
+    return category;
+}
+
+export function getCountry(){
+    const country = useSelector(state => state.system.country)
+
+    return country;
+}

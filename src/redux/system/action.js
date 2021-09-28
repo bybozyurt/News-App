@@ -1,6 +1,5 @@
 import {SET_LANGUAGE, 
         SET_THEME,
-        SHOW_HEADLINES,
         SHOW_SPORTS,
         SHOW_BUSINESS,
         SHOW_FUN,
@@ -24,14 +23,8 @@ export function setLanguage(payload){
     };
 }
 
-export function showHeadlines(payload){
-    return{
-        type: SHOW_HEADLINES,
-        payload
-    };
-}
-
 export function showSports(payload){
+    console.log('SportPayload', payload);
     return{
         type: SHOW_SPORTS,
         payload

@@ -6,8 +6,14 @@ import styles from './styles';
 import CustomText from '../components/Text';
 import CustomView from '../components/CustomView';
 import I18n from '../i18n';
-
+import TouchableImage from '../components/TouchableImage';
+import {useNavigation} from '@react-navigation/native';
+import { useDispatch } from 'react-redux';
+import { showSports, showTechnology } from '../redux/system/action';
 export default function CategoryScreen() {
+
+    const navigation = useNavigation();
+    const dispatch = useDispatch();
 
     const sportImageUrl = 'https://www.ybisletmeistirakler.com/wp-content/uploads/HACI-SABANCI-YUZME-HAVUZU5.jpg';
     const technologyImageUrl = 'https://imgs.platinonline.com/Documents/Platin/images/2018/10/12/e76106d012272018.jpg';
@@ -18,6 +24,27 @@ export default function CategoryScreen() {
     const scienceImageUrl = 'https://iyikigormusum.com/uploads/a39a8e98fbe02269c267a34dc7b5a3ba.jpeg';
     const foreignImageUrl = 'https://media-cldnry.s-nbcnews.com/image/upload/newscms/2020_23/3382051/200606-washington-demonstration-al-1549.jpg';
 
+
+
+    const onPressHeadlines = () =>{
+        navigation.navigate('Headlines');
+    }
+
+    const onPressForeign = () => {
+        navigation.navigate('Foreign')
+    }
+
+    const onPressSport = () =>{
+        dispatch(showSports('sports'))
+        navigation.navigate('Everything')
+
+    }
+
+    const onPressTechnology = () => {
+        dispatch(showTechnology('technology'))
+        navigation.navigate('Everything')
+    }
+
     return (
 
         <CustomView style={styles.categoriesContainer}>
@@ -27,17 +54,20 @@ export default function CategoryScreen() {
 
             <View style={styles.imageViewRow}>
                 <View style={{alignItems:'center'}}>
-                    <Image
+                    <TouchableImage
                         source={{uri:headlinesImageUrl}}
                         style={styles.categoriesİmage}
+                        onPress={onPressHeadlines}
+                        
                     />
                     <CustomText style={styles.textTitle} text={I18n.t('headlines')} />
                 </View>
 
                 <View style={styles.imageMetaView}>
-                    <Image
+                    <TouchableImage
                         source={{uri:sportImageUrl}}
                         style={styles.categoriesİmage}
+                        onPress={() => onPressSport()}
                     />
                     <CustomText style={styles.textTitle} text={I18n.t('sport')}/>
                 </View>
@@ -45,9 +75,10 @@ export default function CategoryScreen() {
 
             <View style={styles.imageViewRow}>
                 <View style={{alignItems:'center'}}>
-                    <Image
+                    <TouchableImage
                         source={{uri:technologyImageUrl}}
                         style={styles.categoriesİmage}
+                        onPress={() => onPressTechnology()}
                     />
                     <CustomText style={styles.textTitle} text={I18n.t('technology')}/>
                 </View>
@@ -89,9 +120,10 @@ export default function CategoryScreen() {
                 </View>
 
                 <View style={styles.imageMetaView}>
-                    <Image
+                    <TouchableImage
                         source={{uri:foreignImageUrl}}
                         style={styles.categoriesİmage}
+                        onPress={onPressForeign}
                     />
                     <CustomText style={styles.textTitle} text={I18n.t('foreign')}/>
                 </View>
