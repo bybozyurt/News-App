@@ -8,6 +8,7 @@ export default{
     magazine : 'Magazine',
     foreign : 'Foreign',
     settings : 'Settings',
-    changeLanguage : 'Change Language'
+    changeLanguage : 'Change Language',
+    categories:'Categories',
     
 };

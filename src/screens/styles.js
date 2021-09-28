@@ -63,6 +63,25 @@ const styles = StyleSheet.create({
     },
     cont:{
         flex:1,
+    },
+    categoriesİmage:{
+        width:170,
+        height:170,
+        borderRadius:20
+    },
+    imageViewRow:{
+        flexDirection:'row', 
+        margin:10, 
+        alignItems:'center', 
+        justifyContent:'center'
+
+    },
+    imageMetaView:{
+        alignItems:'center',
+        marginHorizontal:15
+    },
+    categoriesContainer:{
+        flex:1,
         
     }
 

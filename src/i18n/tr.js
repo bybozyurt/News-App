@@ -8,6 +8,7 @@ export default{
     magazine : 'Magazin',
     foreign : 'Yabancı',
     settings : 'Ayarlar',
-    changeLanguage : 'Dil Değiştir'
+    changeLanguage : 'Dil Değiştir',
+    categories: 'Kategoriler',
 
 };

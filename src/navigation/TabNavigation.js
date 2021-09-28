@@ -9,6 +9,7 @@ import { MainStackNavigation } from "./StackNavigation";
 import I18n from '../i18n';
 import { getDarkMode } from "../redux/system/selector";
 import styles from "../screens/styles";
+import CategoryScreen from "../screens/CategoryScreen";
 
 
 export default function TabNavigator(){
@@ -18,6 +19,7 @@ export default function TabNavigator(){
     const headlinesTitle = I18n.t('headlines');
     const foreignTitle = I18n.t('foreign');
     const settingsTitle = I18n.t('settings');
+    const categoriesTitle = I18n.t('categories');
    
    
    
@@ -63,6 +65,16 @@ export default function TabNavigator(){
                 />
             }}
             />
+            <Tab.Screen
+                name={'Categories'}
+                component={CategoryScreen}
+                options={{
+                    title:categoriesTitle,
+                    tabBarIcon: () => <CustomIcon name={'apps'} color={colors.c000000}/>
+                }}
+            />
+
+
         </Tab.Navigator>
         
        

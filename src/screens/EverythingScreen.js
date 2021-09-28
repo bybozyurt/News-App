@@ -1,27 +1,30 @@
 import React, {useEffect, useState} from 'react';
 import {View, Image, Text,FlatList, SafeAreaView, TouchableHighlight} from 'react-native';
-import styles from '../styles';
-import MaterialComIcon from '../../components/MaterialCommunityIcon';
-import { colors } from '../../constants';
-import prettyTime from '../../config/PrettyTime'
+import styles from './styles';
+import MaterialComIcon from '../components/MaterialCommunityIcon'
+import { colors } from '../constants'
+import prettyTime from '../config/PrettyTime';
+import CustomText from '../components/Text';
+import Header from '../components/Header';
 
 
 
-export default function FunScreen({navigation}){
+export default function AllNewsScreen({navigation}){
 
-    const country = 'tr';
-    const category = 'entertainment';
+    const country = 'us';
+    const category = 'top-headlines';
     const API_KEY = 'f7a124b92a934e4f83b5e96e7a186dc5';
-    const url = `https://newsapi.org/v2/top-headlines?country=${country}&category=${category}&apiKey=${API_KEY}`;
 
-
+    const newsApiUrl = `https://newsapi.org/v2/${category}?country=${country}&apiKey=${API_KEY}`;
+ 
     const [headlines, setHeadlines] = useState({});
+
 
 
     async function fetchTopNews () {
 
         try {
-            (await fetch(url))
+            (await fetch(newsApiUrl))
             .json()
             .then(res => setHeadlines(res))
         
@@ -80,6 +83,7 @@ export default function FunScreen({navigation}){
 
     return(
         <SafeAreaView style={styles.container}>
+        
         
             <FlatList 
                 data={headlines.articles}

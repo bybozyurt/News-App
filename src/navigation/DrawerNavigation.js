@@ -31,7 +31,7 @@ export default function DrawerNavigator(){
 
         <Draw.Navigator>
             
-            <Draw.Screen
+            {/* <Draw.Screen
                 name={'Headlines'}
                 component={TabNavigator}
                 options={{
@@ -94,7 +94,7 @@ export default function DrawerNavigator(){
                     headerShown:false,
                     drawerIcon:() => <CustomIcon name={'happy'} color={colors.c000000}/>
                 }}
-            />
+            /> */}
        </Draw.Navigator>
 
 
