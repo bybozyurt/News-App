@@ -18,7 +18,7 @@ export default function HeadlinesScreen({navigation}){
     //öne çıkan haberler
     const country = 'tr';
     const category = 'top-headlines';
-    const API_KEY = 'f7a124b92a934e4f83b5e96e7a186dc5';
+    const API_KEY = '09f5a7a9a916454d9d76a3c9fee97a88';
 
     const newsApiUrl = `https://newsapi.org/v2/${category}?country=${country}&apiKey=${API_KEY}`;
 

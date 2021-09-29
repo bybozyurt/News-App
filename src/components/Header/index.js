@@ -32,7 +32,6 @@ const style = StyleSheet.create({
     container:{
         marginLeft:10,
         
-        
     },
     
     text:{

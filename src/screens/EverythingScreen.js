@@ -9,7 +9,7 @@ import { getCategory, getCountry } from '../redux/system/selector';
 import CustomView from '../components/CustomView';
 import BackHeader from '../BackHeader';
 import {useNavigation, useRoute} from '@react-navigation/native';
-
+import I18n from '../i18n';
 
 
 export default function EverythingScreen(){
@@ -24,7 +24,7 @@ export default function EverythingScreen(){
     const navigation = useNavigation();
 
 
-    const API_KEY = 'f7a124b92a934e4f83b5e96e7a186dc5';
+    const API_KEY = '09f5a7a9a916454d9d76a3c9fee97a88';
 
     const newsApiUrl = `https://newsapi.org/v2/top-headlines?country=${country}&category=${category}&apiKey=${API_KEY}`;
 
@@ -33,6 +33,7 @@ export default function EverythingScreen(){
     const [headlines, setHeadlines] = useState({});
 
     const goBack = () => {
+        navigation.navigate('Headlines');
         navigation.navigate('Categories');
     };
 
@@ -95,7 +96,7 @@ export default function EverythingScreen(){
 
     return(
         <CustomView style={styles.container}>
-        <BackHeader title={'Kategoriler'} onPress={()=> goBack()}  />
+        <BackHeader title={I18n.t('categories')} onPress={()=> goBack()}  />
         
             <FlatList 
                 data={headlines.articles}

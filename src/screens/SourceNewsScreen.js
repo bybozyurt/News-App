@@ -9,6 +9,7 @@ import { getCategory, getCountry } from '../redux/system/selector';
 import CustomView from '../components/CustomView';
 import BackHeader from '../BackHeader';
 import {useNavigation, useRoute} from '@react-navigation/native';
+import I18n from '../i18n';
 
 
 
@@ -19,10 +20,11 @@ export default function SourceNewsScreen(){
     const {params} = useRoute();
     const navigation = useNavigation();
     const domain = params.domain;
+    console.log(domain);
 
 
 
-    const API_KEY = 'f7a124b92a934e4f83b5e96e7a186dc5';
+    const API_KEY = '09f5a7a9a916454d9d76a3c9fee97a88';
     const url = `https://newsapi.org/v2/everything?domains=${domain}&apiKey=${API_KEY}`;
 
     
@@ -30,7 +32,8 @@ export default function SourceNewsScreen(){
     const [headlines, setHeadlines] = useState({});
 
     const goBack = () => {
-        navigation.navigate('Categories');
+        navigation.navigate('Headlines');
+        navigation.navigate('Sources');
     };
 
     
@@ -88,7 +91,7 @@ export default function SourceNewsScreen(){
 
     return(
         <CustomView style={styles.container}>
-        <BackHeader title={'Kaynaklar'} onPress={()=> goBack()}  />
+        <BackHeader title={I18n.t('sources')} onPress={()=> goBack()}  />
         
             <FlatList 
                 data={headlines.articles}
