@@ -10,5 +10,6 @@ export default{
     settings : 'Ayarlar',
     changeLanguage : 'Dil Değiştir',
     categories: 'Kategoriler',
+    sources: 'Kaynaklar'
 
 };

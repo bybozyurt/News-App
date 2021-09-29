@@ -10,16 +10,19 @@ import I18n from '../i18n';
 import { getDarkMode } from "../redux/system/selector";
 import styles from "../screens/styles";
 import CategoryScreen from "../screens/CategoryScreen";
+import SourceScreen from '../screens/SourceScreen';
+
 
 
 export default function TabNavigator(){
     const Tab = createBottomTabNavigator();
-    const isDark = getDarkMode();
 
     const headlinesTitle = I18n.t('headlines');
     const foreignTitle = I18n.t('foreign');
     const settingsTitle = I18n.t('settings');
     const categoriesTitle = I18n.t('categories');
+    const sourcesTitle = I18n.t('sources');
+   
    
 
 
@@ -36,7 +39,7 @@ export default function TabNavigator(){
     
     return(
 
-        <Tab.Navigator screenOptions={screenOptions} initialRouteName={CategoryScreen}>
+        <Tab.Navigator screenOptions={screenOptions}>
             <Tab.Screen 
             name={'Headlines'} 
             component={MainStackNavigation}
@@ -55,6 +58,22 @@ export default function TabNavigator(){
                 }}
             />
             <Tab.Screen
+                name={'Categories'}
+                component={CategoryScreen}
+                options={{
+                    title:categoriesTitle,
+                    tabBarIcon: () => <CustomIcon name={'apps'} color={colors.c000000}/>
+                }}
+            />
+            <Tab.Screen
+            name = {'Sources'}
+            component={SourceScreen}
+            options={{
+                title:sourcesTitle,
+                tabBarIcon: ()=> <CustomIcon name={'book'} color={colors.c000000} />
+            }} 
+            />
+            <Tab.Screen
             name={'Settings'}
             component={SettingsScreen}
             options={{
@@ -62,14 +81,6 @@ export default function TabNavigator(){
                 tabBarIcon: ()=> <CustomIcon name={'settings'} color={colors.c000000}
                 />
             }}
-            />
-            <Tab.Screen
-                name={'Categories'}
-                component={CategoryScreen}
-                options={{
-                    title:categoriesTitle,
-                    tabBarIcon: () => <CustomIcon name={'apps'} color={colors.c000000}/>
-                }}
             />
 
 

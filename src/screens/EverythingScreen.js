@@ -8,15 +8,17 @@ import CustomText from '../components/Text';
 import { getCategory, getCountry } from '../redux/system/selector';
 import CustomView from '../components/CustomView';
 import BackHeader from '../BackHeader';
-import {useNavigation} from '@react-navigation/native';
+import {useNavigation, useRoute} from '@react-navigation/native';
 
 
 
 export default function EverythingScreen(){
 
-    
+    //Kategoriye göre haber listeleme ekranı
+
+    const {params} = useRoute();
     const country = getCountry();
-    const category = getCategory();
+    const category =  params && params.category;
 
     console.log("Everything Screen country and category = ", country, category);
     const navigation = useNavigation();
@@ -25,12 +27,17 @@ export default function EverythingScreen(){
     const API_KEY = 'f7a124b92a934e4f83b5e96e7a186dc5';
 
     const newsApiUrl = `https://newsapi.org/v2/top-headlines?country=${country}&category=${category}&apiKey=${API_KEY}`;
+
+    
  
     const [headlines, setHeadlines] = useState({});
 
     const goBack = () => {
         navigation.navigate('Categories');
     };
+
+    
+
 
 
 

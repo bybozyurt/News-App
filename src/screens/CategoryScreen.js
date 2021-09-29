@@ -1,6 +1,5 @@
 import React from 'react'
 import { View, Text, Image, ScrollView } from 'react-native'
-import Header from '../components/Header'
 import { fonts, colors } from '../constants';
 import styles from './styles';
 import CustomText from '../components/Text';
@@ -9,11 +8,26 @@ import I18n from '../i18n';
 import TouchableImage from '../components/TouchableImage';
 import {useNavigation} from '@react-navigation/native';
 import { useDispatch } from 'react-redux';
-import { showSports, showTechnology } from '../redux/system/action';
+import Header from '../components/Header';
+
+
+
 export default function CategoryScreen() {
+
+    
 
     const navigation = useNavigation();
     const dispatch = useDispatch();
+
+    const foreignTitle = I18n.t('foreign');
+    const headlinesTitle = I18n.t('headlines');
+    const businessTitle = I18n.t('business');
+    const sportTitle = I18n.t('sport');
+    const healthTittle = I18n.t('health');
+    const technologyTitle = I18n.t('technology');
+    const scienceTitle = I18n.t('science');
+    const magazineTitle = I18n.t('magazine');
+    
 
     const sportImageUrl = 'https://www.ybisletmeistirakler.com/wp-content/uploads/HACI-SABANCI-YUZME-HAVUZU5.jpg';
     const technologyImageUrl = 'https://imgs.platinonline.com/Documents/Platin/images/2018/10/12/e76106d012272018.jpg';
@@ -26,29 +40,10 @@ export default function CategoryScreen() {
 
 
 
-    const onPressHeadlines = () =>{
-        navigation.navigate('Headlines');
-    }
-
-    const onPressForeign = () => {
-        navigation.navigate('Foreign')
-    }
-
-    const onPressSport = () =>{
-        dispatch(showSports('sports'))
-        navigation.navigate('Everything')
-
-    }
-
-    const onPressTechnology = () => {
-        dispatch(showTechnology('technology'))
-        navigation.navigate('Everything')
-    }
-
     return (
 
         <CustomView style={styles.categoriesContainer}>
-        <Header title={'Kategoriler'}/>
+        <Header title={I18n.t('categories')} />
 
         <ScrollView showsVerticalScrollIndicator={false}>
 
@@ -57,19 +52,19 @@ export default function CategoryScreen() {
                     <TouchableImage
                         source={{uri:headlinesImageUrl}}
                         style={styles.categoriesİmage}
-                        onPress={onPressHeadlines}
+                        onPress={() =>  navigation.navigate('Headlines')}
                         
                     />
-                    <CustomText style={styles.textTitle} text={I18n.t('headlines')} />
+                    <CustomText style={styles.textTitle} text={headlinesTitle} />
                 </View>
 
                 <View style={styles.imageMetaView}>
                     <TouchableImage
                         source={{uri:sportImageUrl}}
                         style={styles.categoriesİmage}
-                        onPress={() => onPressSport()}
+                        onPress={() => navigation.navigate('Everything', {category : 'sport'})}
                     />
-                    <CustomText style={styles.textTitle} text={I18n.t('sport')}/>
+                    <CustomText style={styles.textTitle} text={sportTitle}/>
                 </View>
             </View>
 
@@ -78,54 +73,58 @@ export default function CategoryScreen() {
                     <TouchableImage
                         source={{uri:technologyImageUrl}}
                         style={styles.categoriesİmage}
-                        onPress={() => onPressTechnology()}
+                        onPress={() => navigation.navigate('Everything', {category : 'technology'})}
                     />
-                    <CustomText style={styles.textTitle} text={I18n.t('technology')}/>
+                    <CustomText style={styles.textTitle} text={technologyTitle}/>
                 </View>
 
                 <View style={styles.imageMetaView}>
-                    <Image
+                    <TouchableImage
                         source={{uri:healthImageUrl}}
                         style={styles.categoriesİmage}
+                        onPress={() => navigation.navigate('Everything', {category : 'health'})}
                     />
-                    <CustomText style={styles.textTitle} text={I18n.t('health')}/>
+                    <CustomText style={styles.textTitle} text={healthTittle}/>
                 </View>
             </View>
 
             <View style={styles.imageViewRow}>
                 <View style={{alignItems:'center'}}>
-                    <Image
+                    <TouchableImage
                         source={{uri:economyImageUrl}}
                         style={styles.categoriesİmage}
+                        onPress={() => navigation.navigate('Everything', {category : 'business'})}
                     />
-                    <CustomText style={styles.textTitle} text={I18n.t('business')}/>
+                    <CustomText style={styles.textTitle} text={businessTitle}/>
                 </View>
 
                 <View style={styles.imageMetaView}>
-                    <Image
+                    <TouchableImage
                         source={{uri:magazineImageUrl}}
                         style={styles.categoriesİmage}
+                        onPress={() => navigation.navigate('Everything', {category : 'entertainment'})}
                     />
-                    <CustomText style={styles.textTitle} text={I18n.t('magazine')}/>
+                    <CustomText style={styles.textTitle} text={magazineTitle}/>
                 </View>
             </View>
 
             <View style={styles.imageViewRow}>
                 <View style={{alignItems:'center'}}>
-                    <Image
+                    <TouchableImage
                         source={{uri:scienceImageUrl}}
                         style={styles.categoriesİmage}
+                        onPress={() => navigation.navigate('Everything', {category : 'science'})}
                     />
-                    <CustomText style={styles.textTitle} text={I18n.t('science')}/>
+                    <CustomText style={styles.textTitle} text={scienceTitle}/>
                 </View>
 
                 <View style={styles.imageMetaView}>
                     <TouchableImage
                         source={{uri:foreignImageUrl}}
                         style={styles.categoriesİmage}
-                        onPress={onPressForeign}
+                        onPress={()=> navigation.navigate('Foreign')}
                     />
-                    <CustomText style={styles.textTitle} text={I18n.t('foreign')}/>
+                    <CustomText style={styles.textTitle} text={foreignTitle}/>
                 </View>
             </View>
 

@@ -6,10 +6,15 @@ import { colors } from '../constants'
 import prettyTime from '../config/PrettyTime';
 import CustomText from '../components/Text';
 import Header from '../components/Header';
+import I18n from '../i18n';
+import CustomView from '../components/CustomView';
+
 
 
 
 export default function AllNewsScreen({navigation}){
+
+    //Yabancı Ekranı
 
     const country = 'us';
     const category = 'top-headlines';
@@ -63,14 +68,14 @@ export default function AllNewsScreen({navigation}){
             style={styles.image}
             />
             <View style={styles.MetaItemContainer}>
-                <Text style={styles.textTitle} >{item.title}</Text>
+                <CustomText style={styles.textTitle} text={item.title} ></CustomText>
                 
                 <View style={styles.InfoContainer}>
                     <MaterialComIcon name={'beaker'} size={15} color={colors.c000000} />
-                    <Text style={styles.textSourceName}>{item.source.name}</Text>
+                    <CustomText style={styles.textSourceName} text={item.source.name} ></CustomText>
 
                     <MaterialComIcon name={'clock-outline'} size={15} color={colors.c000000}/>
-                    <Text style={styles.textTime}>{prettyTime(item.publishedAt)}</Text>  
+                    <CustomText style={styles.textTime} text={prettyTime(item.publishedAt)} ></CustomText>  
                              
                 </View>
                 
@@ -84,7 +89,8 @@ export default function AllNewsScreen({navigation}){
 
 
     return(
-        <SafeAreaView style={styles.container}>
+        <CustomView style={styles.container}>
+            <Header title={I18n.t('foreign')} />
         
         
             <FlatList 
@@ -96,7 +102,7 @@ export default function AllNewsScreen({navigation}){
                 >
 
             </FlatList>
-        </SafeAreaView>
+        </CustomView>
     );
 }
 

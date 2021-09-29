@@ -3,13 +3,7 @@ import {} from 'react-native';
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import CustomIcon from '../components/CustomIcon';
 import { colors } from "../constants";
-import EconomyScreen from '../screens/categoryScreens/EconomyScreen';
-import TabNavigator from "./TabNavigation";
-import SportScreen from "../screens/categoryScreens/SportScreen";
-import TechnologyScreen from "../screens/categoryScreens/TechnologyScreen";
-import HealthScreen from "../screens/categoryScreens/HealthScreen";
-import ScienceScreen from "../screens/categoryScreens/ScienceScreen";
-import FunScreen from "../screens/categoryScreens/FunScreen";
+
 import I18n from '../i18n';
 
 

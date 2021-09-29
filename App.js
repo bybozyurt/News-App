@@ -10,9 +10,6 @@ import { PersistGate } from 'redux-persist/integration/react';
 const persistor = persistStore(store);
 
 export default function App(){
-  
-
-  
 
   return(
     <PersistGate persistor={persistor}>

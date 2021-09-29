@@ -4,34 +4,40 @@ import styles from './styles';
 import MaterialComIcon from '../components/MaterialCommunityIcon'
 import { colors } from '../constants'
 import prettyTime from '../config/PrettyTime';
-import Header from '../components/Header';
-import I18n from '../i18n';
-import { get } from 'react-native/Libraries/Utilities/PixelRatio';
-import { getDarkMode } from '../redux/system/selector';
-import CustomView from '../components/CustomView';
 import CustomText from '../components/Text';
+import { getCategory, getCountry } from '../redux/system/selector';
+import CustomView from '../components/CustomView';
+import BackHeader from '../BackHeader';
+import {useNavigation, useRoute} from '@react-navigation/native';
 
 
 
-export default function HeadlinesScreen({navigation}){
+export default function SourceNewsScreen(){
 
-    //öne çıkan haberler
-    const country = 'tr';
-    const category = 'top-headlines';
+    //Kategoriye göre haber listeleme ekranı
+
+    const {params} = useRoute();
+    const navigation = useNavigation();
+    const domain = params.domain;
+
+
+
     const API_KEY = 'f7a124b92a934e4f83b5e96e7a186dc5';
-
-    const newsApiUrl = `https://newsapi.org/v2/${category}?country=${country}&apiKey=${API_KEY}`;
-
-    //const url = `https://newsapi.org/v2/everything?domains=sozcu.com.tr&apiKey=f7a124b92a934e4f83b5e96e7a186dc5`;
-
-    const [headlines, setHeadlines] = useState({});
+    const url = `https://newsapi.org/v2/everything?domains=${domain}&apiKey=${API_KEY}`;
 
     
+ 
+    const [headlines, setHeadlines] = useState({});
 
+    const goBack = () => {
+        navigation.navigate('Categories');
+    };
+
+    
     async function fetchTopNews () {
 
         try {
-            (await fetch(newsApiUrl))
+            (await fetch(url))
             .json()
             .then(res => setHeadlines(res))
         
@@ -42,9 +48,6 @@ export default function HeadlinesScreen({navigation}){
     }
     useEffect(() => {
         fetchTopNews();
-            
-        
-        
     }, []);
 
     function Seperator (){
@@ -73,30 +76,25 @@ export default function HeadlinesScreen({navigation}){
                     <CustomText style={styles.textSourceName} text={item.source.name}></CustomText>
 
                     <MaterialComIcon name={'clock-outline'} size={15} color={colors.c000000}/>
-                    <CustomText style={styles.textTime} text={prettyTime(item.publishedAt)}></CustomText>  
-                             
-                </View>
-                
-                                
-            </View>
-           
+                    <CustomText style={styles.textTime} text={prettyTime(item.publishedAt)}></CustomText>            
+                </View>                  
+            </View> 
         </View>
         </TouchableHighlight>
         );
+    
     }
 
 
     return(
         <CustomView style={styles.container}>
-            <Header title={I18n.t('headlines')}/>
-
+        <BackHeader title={'Kaynaklar'} onPress={()=> goBack()}  />
         
             <FlatList 
                 data={headlines.articles}
                 renderItem={renderItem}
                 keyExtractor={item => item.title}
                 ItemSeparatorComponent={()=> Seperator()}
-                
                 >
 
             </FlatList>

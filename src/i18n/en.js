@@ -10,5 +10,7 @@ export default{
     settings : 'Settings',
     changeLanguage : 'Change Language',
     categories:'Categories',
+    sources:'Sources',
+    
     
 };

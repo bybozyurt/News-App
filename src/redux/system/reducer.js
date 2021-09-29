@@ -1,12 +1,7 @@
 import {
     SET_LANGUAGE,
     SET_THEME, 
-    SHOW_BUSINESS, 
-    SHOW_SPORTS,
-    SHOW_FUN,
-    SHOW_HEALTH,
-    SHOW_SCIENCE,
-    SHOW_TECHNOLOGY
+    
 } from './actionTypes';
 
 const initialState = {
@@ -32,37 +27,6 @@ export function systemReducer(state = initialState, action){
         case SET_THEME:
             return{...state, isDarkMode:action.payload}
 
-        case SHOW_BUSINESS:
-            return{
-                ...state,
-                category:action.payload,
-            }
-        case SHOW_SPORTS:
-            return{
-                ...state,
-                category:action.payload,
-            }
-        case SHOW_FUN:
-            return{
-                ...state,
-                category:action.payload,
-
-            }
-        case SHOW_HEALTH:
-            return{
-                ...state,
-                category:action.payload,
-            }
-        case SHOW_SCIENCE:
-            return{
-                ...state,
-                category:action.payload,
-            }
-        case SHOW_TECHNOLOGY:
-            return{
-                ...state,
-                category:action.payload,
-            }
         
         default:
             return state;
